@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payroll System - Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Payroll Accounting System (Demo)</h1>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add / Edit Employee</h2>
+      <form id="employeeForm">
+        <input type="hidden" id="empId" />
+        <label>
+          Name
+          <input required id="name" placeholder="Employee name"/>
+        </label>
+        <label>
+          Basic Pay
+          <input required id="basic" type="number" min="0" step="0.01" placeholder="0.00"/>
+        </label>
+        <label>
+          Allowances
+          <input id="allowances" type="number" min="0" step="0.01" placeholder="0.00"/>
+        </label>
+        <label>
+          Deductions
+          <input id="deductions" type="number" min="0" step="0.01" placeholder="0.00"/>
+        </label>
+        <div class="form-row">
+          <button type="submit">Save Employee</button>
+          <button id="clearBtn" type="button">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Employees</h2>
+      <input id="search" placeholder="Search by name..." />
+      <table id="empTable">
+        <thead>
+          <tr><th>Name</th><th>Basic</th><th>Allow</th><th>Deduct</th><th>Net Pay</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="noData" class="muted">No employees yet.</p>
+    </section>
+  </main>
+
+  <footer>
+    <small>Demo built with HTML/CSS/JS — stores data in localStorage</small>
+  </footer>
+
+  <template id="rowTemplate">
+    <tr>
+      <td class="t-name"></td>
+      <td class="t-basic"></td>
+      <td class="t-allow"></td>
+      <td class="t-deduct"></td>
+      <td class="t-net"></td>
+      <td class="t-action"></td>
+    </tr>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
